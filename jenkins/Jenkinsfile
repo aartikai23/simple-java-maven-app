@@ -2,11 +2,14 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-           
-            withMaven(maven: 'mvn') {
+            steps{
+                withMaven(maven: 'mvn') {
                 sh "mvn clean package"
             }
+            }
+            
          }
+        
         
         stage('Test') {
             steps {
@@ -25,3 +28,5 @@ pipeline {
         }
     }
 }
+
+

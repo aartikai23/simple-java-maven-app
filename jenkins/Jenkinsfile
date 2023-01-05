@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    def  mvn_version = 'maventest'
+    withEnv(  ["PATH+MAVEN=${tool mvn_version}/bin"] )  {
+      //sh "mvn clean package"
+    }
     tools { 
         maven 'maventest' 
     }
@@ -30,5 +34,3 @@ pipeline {
         }
     }
 }
-
-
